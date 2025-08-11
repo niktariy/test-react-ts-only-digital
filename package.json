@@ -1,0 +1,43 @@
+{
+  "name": "test-react-ts-only-digital",
+  "author": "Veronika Khalikova <vervaspro@icloud.com>",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
+    "format": "prettier --write \"src/**/*.{js,ts,tsx,json,css,md}\""
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.13.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "styled-components": "^6.0.0",
+    "swiper": "^11.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.0.0",
+    "@types/styled-components": "^5.1.26",
+    "css-loader": "^6.8.1",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-styled-components-a11y": "^2.2.1",
+    "globals": "^16.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss-styled-syntax": "^0.7.1",
+    "prettier": "^3.6.2",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.39.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
