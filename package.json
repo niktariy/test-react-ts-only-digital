@@ -7,7 +7,8 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
-    "format": "prettier --write \"src/**/*.{js,ts,tsx,json,css,md}\""
+    "format": "prettier --write \"src/**/*.{js,ts,tsx,json,css,md}\"",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -28,6 +29,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-styled-components-a11y": "^2.2.1",
+    "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss-styled-syntax": "^0.7.1",
