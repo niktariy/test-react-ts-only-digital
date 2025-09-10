@@ -6,15 +6,15 @@ export interface StyledTabButtonProps {
   $isActive: boolean;
 }
 
-export const StyledTabButton = styled(FabButton) <StyledTabButtonProps>`
+export const StyledTabButton = styled(FabButton)<StyledTabButtonProps>`
   background-color: rgb(var(--blue-12));
   transition: scale 0.5s ease;
   scale: 0.10715;
-  
+
   @media screen and (width > 1200px) {
     background-color: rgb(var(--blue-1));
     scale: ${({ $isActive }) => ($isActive ? 1 : 0.10715)};
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -27,7 +27,7 @@ export const StyledTabButton = styled(FabButton) <StyledTabButtonProps>`
       opacity: var(--button-fill-opacity, 0);
       transition: opacity 0.3s ease;
     }
-     
+
     &:hover,
     &:focus {
       --button-fill-opacity: 0;

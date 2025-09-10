@@ -20,7 +20,7 @@ const circlePathD = `
 const CircleTablist = styled.div`
   display: flex;
   position: relative;
-  
+
   @media screen and (width > 1200px) {
     width: ${CIRCLE_SIZE + STROKE_WIDTH}px;
     height: ${CIRCLE_SIZE + STROKE_WIDTH}px;
@@ -186,36 +186,19 @@ const CircleTabs = ({ categories, selectedCategoryIdx, onSelectCategoryIdx }: Ci
     labelRefs.current[idx] = el;
   }, []);
 
-  useEffect(() => {
-    animateToIdx(selectedCategoryIdx);
-  }, [selectedCategoryIdx, animateToIdx]);
-
-  useEffect(() => {
-    if (!isLargeScreen) {
-      tabRefs.current.forEach(tab => {
-        if (tab) {
-          tab.style.position = '';
-          tab.style.transform = '';
-        }
-      });
-    } else {
-      applyOffset(carouselOffset);
-    }
-  }, [isLargeScreen, applyOffset, carouselOffset]);
-
   const handleTabKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLButtonElement>, idx: number) => {
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
       switch (e.key) {
         case 'ArrowRight':
         case 'ArrowDown': {
           e.preventDefault();
-          onSelectCategoryIdx((idx + 1) % tabCount);
+          onSelectCategoryIdx((selectedCategoryIdx + 1) % tabCount);
           break;
         }
         case 'ArrowLeft':
         case 'ArrowUp': {
           e.preventDefault();
-          onSelectCategoryIdx((idx - 1 + tabCount) % tabCount);
+          onSelectCategoryIdx((selectedCategoryIdx - 1 + tabCount) % tabCount);
           break;
         }
         case 'Home': {
@@ -232,6 +215,23 @@ const CircleTabs = ({ categories, selectedCategoryIdx, onSelectCategoryIdx }: Ci
     },
     [onSelectCategoryIdx, tabCount],
   );
+
+  useEffect(() => {
+    animateToIdx(selectedCategoryIdx);
+  }, [selectedCategoryIdx, animateToIdx]);
+
+  useEffect(() => {
+    if (!isLargeScreen) {
+      tabRefs.current.forEach((tab) => {
+        if (tab) {
+          tab.style.position = '';
+          tab.style.transform = '';
+        }
+      });
+    } else {
+      applyOffset(carouselOffset);
+    }
+  }, [isLargeScreen, applyOffset, carouselOffset]);
 
   return (
     <CircleTablist role="tablist" aria-label="Категории" id="categories-tablist">
@@ -267,7 +267,7 @@ const CircleTabs = ({ categories, selectedCategoryIdx, onSelectCategoryIdx }: Ci
               aria-controls={`tabpanel-${idx}`}
               tabIndex={isSelected ? 0 : -1}
               onClick={() => onSelectCategoryIdx(idx)}
-              onKeyDown={(e) => handleTabKeyDown(e, idx)}
+              onKeyDown={(e) => handleTabKeyDown(e)}
             >
               <span>{idx + 1}</span>
               <TabLabel ref={(el) => setLabelRef(el, idx)} $isVisible={isSelected}>
