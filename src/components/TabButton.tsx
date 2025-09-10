@@ -33,11 +33,7 @@ export const StyledTabButton = styled(FabButton) <StyledTabButtonProps>`
       --button-fill-opacity: 0;
       scale: 1;
     }
-  }
-
-  &[aria-selected='false'] {
-
-    @media screen and (width > 1200px) {
+    &:where([aria-selected='false']) {
       --button-fill-opacity: 1;
     }
   }
